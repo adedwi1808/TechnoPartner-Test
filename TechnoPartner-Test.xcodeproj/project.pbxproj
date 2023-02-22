@@ -11,6 +11,7 @@
 		01CBCE1F29A5D47900E7B976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE1E29A5D47900E7B976 /* ContentView.swift */; };
 		01CBCE2129A5D47B00E7B976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CBCE2029A5D47B00E7B976 /* Assets.xcassets */; };
 		01CBCE2429A5D47B00E7B976 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CBCE2329A5D47B00E7B976 /* Preview Assets.xcassets */; };
+		01CBCE3229A5D62A00E7B976 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE3129A5D62A00E7B976 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		01CBCE1E29A5D47900E7B976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		01CBCE2029A5D47B00E7B976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01CBCE2329A5D47B00E7B976 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		01CBCE3129A5D62A00E7B976 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		01CBCE2C29A5D5B000E7B976 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				01CBCE2F29A5D61900E7B976 /* Auth */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -97,6 +100,22 @@
 				01CBCE2029A5D47B00E7B976 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		01CBCE2F29A5D61900E7B976 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				01CBCE3029A5D62000E7B976 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		01CBCE3029A5D62000E7B976 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				01CBCE3129A5D62A00E7B976 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01CBCE3229A5D62A00E7B976 /* LoginView.swift in Sources */,
 				01CBCE1F29A5D47900E7B976 /* ContentView.swift in Sources */,
 				01CBCE1D29A5D47900E7B976 /* TechnoPartner_TestApp.swift in Sources */,
 			);
