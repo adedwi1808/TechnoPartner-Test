@@ -21,6 +21,8 @@ struct DetailQRView: View {
             } placeholder: {
                 Image(systemName: "photo")
             }
+            
+            Spacer()
 
         }
         .padding()
