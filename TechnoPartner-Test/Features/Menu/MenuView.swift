@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State var menus = [MenuCategory]()
+    @StateObject var menuVM: MenuViewModel = MenuViewModel()
     @State var selectedTab: Int = 0
     @State var contentSize: CGSize = .zero
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            TPTopBarButtonView(tabs: ["Seasonal menu", "Best Sellers", "Coffee", "Cold Brew", "Chocolate"], geoWidth: .init(1000), selectedTab: $selectedTab)
+            TPTopBarButtonView(tabs: menuVM.menusCategory, geoWidth: .init(1000), selectedTab: $selectedTab)
             
             Spacer()
             menusView
         }
         .background(Color("BackgroundColor"))
         .navigationTitle("MENU")
+        .onAppear {
+            Task {
+                menuVM.getMenusData
+            }
+        }
     }
 }
 
@@ -30,7 +35,7 @@ extension MenuView {
         
         ScrollView(showsIndicators: false) {
             ScrollViewReader { _ in
-                ForEach(menus, id: \.self) { category in
+                ForEach(menuVM.menus, id: \.self) { category in
                     Text(category.categoryName)
                         .font(.system(size: 16, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -89,51 +94,6 @@ extension MenuView {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menus: [
-            MenuCategory(categoryName: "Seasonal Product", menu: [
-                Menu(name: "Caramel Belgian Chocolate", description: "A creamy blend of decadent chocolate, steamed milk and caramel syrup.", photo: "https://soal.staging.id/img/Caramel Belgian Chocolate.png", price: 50000),
-                Menu(name: "Hazelnut Belgian Chocolate", description: "A creamy blend of decadent chocolate, steamed milk and hazelnut syrup.", photo: "https://soal.staging.id/img/Hazelnut Belgian Chocolate.png", price: 50000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-            MenuCategory(categoryName: "Kategori 1", menu: [
-                Menu(name: "ade", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade2", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-            MenuCategory(categoryName: "Kategori 1", menu: [
-                Menu(name: "ade", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade2", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-            MenuCategory(categoryName: "Kategori 1", menu: [
-                Menu(name: "ade", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade2", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-            MenuCategory(categoryName: "Kategori 1", menu: [
-                Menu(name: "ade", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade2", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-            MenuCategory(categoryName: "Kategori 1", menu: [
-                Menu(name: "ade", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade2", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade3", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                Menu(name: "ade4", description: "ade", photo: "https://soal.staging.id/img/Cold Brew Black.png", price: 2000),
-                
-            ]),
-           
-            
-        ])
+        MenuView()
     }
 }

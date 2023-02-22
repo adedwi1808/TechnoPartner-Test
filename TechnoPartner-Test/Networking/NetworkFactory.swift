@@ -11,6 +11,7 @@ enum NetworkFactory {
     //AUTH
     case doLogin(username: String, password: String)
     case getHomeData
+    case getMenusData
 }
 
 extension NetworkFactory {
@@ -22,6 +23,8 @@ extension NetworkFactory {
             return "/oauth/token"
         case .getHomeData:
             return "/api/home"
+        case .getMenusData:
+            return "/api/menu"
         }
     }
     
@@ -103,6 +106,8 @@ extension NetworkFactory {
         case .doLogin:
             return getHeaders(type: .anonymous)
         case .getHomeData:
+            return getHeaders(type: .appToken)
+        case .getMenusData:
             return getHeaders(type: .appToken)
         }
     }
