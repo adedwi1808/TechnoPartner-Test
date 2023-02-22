@@ -11,7 +11,7 @@ struct LoginView: View {
     @StateObject var loginVM: LoginViewModel = LoginViewModel()
     var body: some View {
         VStack {
-            NavigationLink(destination: HomeView(), isActive: $loginVM.isLogined, label: {EmptyView()})
+            NavigationLink(destination: TabBarView(), isActive: $loginVM.isLogined, label: {EmptyView()})
             
             Image("TechnoPartnerLogo")
                 .resizable()
