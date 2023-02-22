@@ -17,6 +17,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var index: Int = 0
     @Published var openDetailQR: Bool = false
+    @Published var isLoaded: Bool = false
     
     var updateTimer: Timer {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: {_ in
@@ -39,6 +40,7 @@ class HomeViewModel: ObservableObject {
         do {
             let res = try await homeServices.getHomeData(endpoint: .getHomeData)
             DispatchQueue.main.async {
+                self.isLoaded = true
                 self.name = res.result.name
                 self.greeting = res.result.greeting
                 self.qrcode = res.result.qrcode

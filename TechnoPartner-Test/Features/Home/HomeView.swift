@@ -32,10 +32,12 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            Task {
-                try await homeVM.getHomeData()
+            if !homeVM.isLoaded {
+                Task {
+                    try await homeVM.getHomeData()
+                }
+                homeVM.updateTimer
             }
-            homeVM.updateTimer
         }
         .navigationBarBackButtonHidden(true)
     }
