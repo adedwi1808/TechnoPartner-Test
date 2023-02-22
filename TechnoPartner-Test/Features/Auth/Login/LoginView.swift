@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject var loginVM: LoginViewModel = LoginViewModel()
     var body: some View {
-        
         VStack {
+            NavigationLink(destination: HomeView(), isActive: $loginVM.isLogined, label: {EmptyView()})
+            
             Image("TechnoPartnerLogo")
                 .resizable()
                 .scaledToFit()
             
             Spacer()
             
-            TPTextFieldView(label: "Email", hint: "Masukkan Email", inputText: $email, textFieldStyle: .email)
+            TPTextFieldView(label: "Email", hint: "Masukkan Email", inputText: $loginVM.username, textFieldStyle: .email)
             
-            TPTextFieldView(label: "Password", hint: "Masukkan Password", inputText: $password, textFieldStyle: .password)
+            TPTextFieldView(label: "Password", hint: "Masukkan Password", inputText: $loginVM.password, textFieldStyle: .password)
             
             Button {
-                //
+                Task {
+                    try await loginVM.doLogin()
+                }
             } label: {
                 Text("Login")
                     .buttonStyle(.bordered)

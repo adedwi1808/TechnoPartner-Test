@@ -9,7 +9,7 @@ import Foundation
 
 enum NetworkFactory {
     //AUTH
-    case doLogin(email: String, password: String)
+    case doLogin(username: String, password: String)
 }
 
 extension NetworkFactory {
@@ -73,9 +73,14 @@ extension NetworkFactory {
     // MARK: BODY PARAMS API
     var bodyParam: [String: Any]? {
         switch self {
-        case .doLogin(let email, let password):
-            return ["email": email,
-                    "password": password]
+        case .doLogin(let username, let password):
+            return [
+                "grant_type": "password",
+                "client_secret": "0a40f69db4e5fd2f4ac65a090f31b823",
+                "client_id": "e78869f77986684a",
+                "username": username,
+                "password": password
+            ]
         default:
             return [:]
         }
