@@ -21,8 +21,10 @@ struct MenuView: View {
         .background(Color("BackgroundColor"))
         .navigationTitle("MENU")
         .onAppear {
-            Task {
-                try await menuVM.getMenusData()
+            if !menuVM.isLoaded{
+                Task {
+                    try await menuVM.getMenusData()
+                }
             }
         }
     }

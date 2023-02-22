@@ -10,6 +10,9 @@ import Foundation
 class MenuViewModel: ObservableObject {
     @Published var menus = [MenuCategory]()
     @Published var menusCategory = [String]()
+    
+    @Published var isLoaded: Bool = false
+    
     private var menuServices: MenuServicesProtocol
     
     init(menuServices: MenuServicesProtocol = MenuServices()) {
@@ -20,6 +23,7 @@ class MenuViewModel: ObservableObject {
         do {
             let res = try await menuServices.getMenusData(endpoint: .getMenusData)
             DispatchQueue.main.async {
+                self.isLoaded = true
                 self.menus = res.result.categories
                 for category in res.result.categories {
                     self.menusCategory.append(category.categoryName)
