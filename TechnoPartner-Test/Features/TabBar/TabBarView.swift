@@ -12,12 +12,6 @@ struct TabBarView: View {
     @State var selectedTab: Tab = .home
     
     init() {
-        //Use this if NavigationBarTitle is with Large Font
-//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-//
-//        //Use this if NavigationBarTitle is with displayMode = .inline
-//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-        
         UITabBar.appearance().backgroundColor = UIColor.white
     }
     
