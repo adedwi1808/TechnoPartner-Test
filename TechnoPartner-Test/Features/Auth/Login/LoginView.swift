@@ -8,8 +8,38 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State var email: String = ""
+    @State var password: String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            Image("TechnoPartnerLogo")
+                .resizable()
+                .scaledToFit()
+            
+            Spacer()
+            
+            TPTextFieldView(label: "Email", hint: "Masukkan Email", inputText: $email, textFieldStyle: .email)
+            
+            TPTextFieldView(label: "Password", hint: "Masukkan Password", inputText: $password, textFieldStyle: .password)
+            
+            Button {
+                //
+            } label: {
+                Text("Login")
+                    .buttonStyle(.bordered)
+                    .frame(width: 200, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
+                    .padding(.top, 20)
+            }
+
+            Spacer()
+        }
+        .padding(15)
+        
     }
 }
 
