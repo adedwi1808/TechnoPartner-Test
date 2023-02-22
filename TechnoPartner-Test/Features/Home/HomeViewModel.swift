@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var banner = [String]()
     
     @Published var index: Int = 0
+    @Published var openDetailQR: Bool = false
     
     var updateTimer: Timer {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: {_ in

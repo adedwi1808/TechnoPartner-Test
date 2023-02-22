@@ -12,6 +12,8 @@ struct HomeView: View {
     @StateObject var homeVM: HomeViewModel = HomeViewModel()
     var body: some View {
         ZStack {
+            NavigationLink(destination: DetailQRView(qrLink: homeVM.qrcode), isActive: $homeVM.openDetailQR, label: {EmptyView()})
+            
             Color("BackgroundColor")
                 .ignoresSafeArea()
             
@@ -35,6 +37,7 @@ struct HomeView: View {
             }
             homeVM.updateTimer
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -58,7 +61,6 @@ extension HomeView {
                     } placeholder: {
                         Image(systemName: "photo")
                     }
-                    
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -123,6 +125,11 @@ extension HomeView {
                     .background(.white)
                     .cornerRadius(40)
                     .shadow(radius: 5)
+                    .onTapGesture {
+                        withAnimation {
+                            homeVM.openDetailQR.toggle()
+                        }
+                    }
 
                     
                     VStack(alignment: .leading) {
