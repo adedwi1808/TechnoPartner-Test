@@ -63,6 +63,8 @@ extension NetworkFactory {
         switch self {
         case .doLogin:
             return .post
+        case .getMenusData:
+            return .post
         default:
             return .get
         }
@@ -86,6 +88,10 @@ extension NetworkFactory {
                 "client_id": "e78869f77986684a",
                 "username": username,
                 "password": password
+            ]
+        case .getMenusData:
+            return [
+                "show_all":"1"
             ]
         default:
             return [:]

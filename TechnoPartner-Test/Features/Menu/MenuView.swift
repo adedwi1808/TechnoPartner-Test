@@ -22,7 +22,7 @@ struct MenuView: View {
         .navigationTitle("MENU")
         .onAppear {
             Task {
-                menuVM.getMenusData
+                try await menuVM.getMenusData()
             }
         }
     }
