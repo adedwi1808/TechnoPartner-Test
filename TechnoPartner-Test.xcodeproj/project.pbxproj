@@ -51,9 +51,10 @@
 		01CBCE1B29A5D47900E7B976 /* TechnoPartner-Test */ = {
 			isa = PBXGroup;
 			children = (
-				01CBCE1C29A5D47900E7B976 /* TechnoPartner_TestApp.swift */,
-				01CBCE1E29A5D47900E7B976 /* ContentView.swift */,
-				01CBCE2029A5D47B00E7B976 /* Assets.xcassets */,
+				01CBCE2C29A5D5B000E7B976 /* Features */,
+				01CBCE2B29A5D5A500E7B976 /* Component */,
+				01CBCE2A29A5D57600E7B976 /* InitializedApp */,
+				01CBCE2D29A5D5C100E7B976 /* Resource */,
 				01CBCE2229A5D47B00E7B976 /* Preview Content */,
 			);
 			path = "TechnoPartner-Test";
@@ -65,6 +66,37 @@
 				01CBCE2329A5D47B00E7B976 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		01CBCE2A29A5D57600E7B976 /* InitializedApp */ = {
+			isa = PBXGroup;
+			children = (
+				01CBCE1C29A5D47900E7B976 /* TechnoPartner_TestApp.swift */,
+				01CBCE1E29A5D47900E7B976 /* ContentView.swift */,
+			);
+			path = InitializedApp;
+			sourceTree = "<group>";
+		};
+		01CBCE2B29A5D5A500E7B976 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		01CBCE2C29A5D5B000E7B976 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		01CBCE2D29A5D5C100E7B976 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				01CBCE2029A5D47B00E7B976 /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
