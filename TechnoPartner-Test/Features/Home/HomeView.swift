@@ -9,19 +9,31 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var index = 0
-    
+    @StateObject var homeVM: HomeViewModel = HomeViewModel()
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading) {
-                userInformationView
-                
-                carouselView
-                Spacer()
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    userInformationView
+                    
+                    carouselView
+                    Spacer()
+                }
             }
+            .refreshable {
+                Task {
+                    try await homeVM.getHomeData()
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                try await homeVM.getHomeData()
+            }
+            homeVM.updateTimer
         }
     }
 }
@@ -38,14 +50,20 @@ extension HomeView {
     @ViewBuilder
     private var carouselView: some View {
         VStack{
-            TabView(selection: $index) {
-                ForEach((0..<3), id: \.self) { index in
-                    Color.red
-                        .frame(height: 230)
-                        .border(Color.black)
+            TabView(selection: $homeVM.index) {
+                ForEach((0..<homeVM.banner.count), id: \.self) { index in
+                    AsyncImage(url: URL(string: homeVM.banner[index])) { image in
+                        image.resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Image(systemName: "photo")
+                    }
+                    
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .animation(.easeInOut)
+            .transition(.slide)
             
             Spacer()
             
@@ -53,7 +71,7 @@ extension HomeView {
                 HStack(spacing: 5) {
                     ForEach((0..<3), id: \.self) { index in
                         Circle()
-                            .fill(index == self.index ? Color.black : Color.gray.opacity(0.5))
+                            .fill(index == self.homeVM.index ? Color.black : Color.gray.opacity(0.5))
                             .frame(width: 10, height: 10)
                     }
                 }
@@ -87,12 +105,26 @@ extension HomeView {
                 .scaledToFit()
             
             VStack(alignment: .leading, spacing: 15) {
-                Text("Good Afteernoon,")
+                Text("\(homeVM.greeting),")
                 
-                Text("Guntur Saputro")
+                Text(homeVM.name)
                     .fontWeight(.bold)
                 
                 HStack {
+                    
+                    AsyncImage(url: URL(string: homeVM.qrcode)) { image in
+                        image.resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                    } placeholder: {
+                        Image(systemName: "photo")
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(.white)
+                    .cornerRadius(40)
+                    .shadow(radius: 5)
+
+                    
                     VStack(alignment: .leading) {
                         Text("Saldo")
                         
@@ -102,10 +134,10 @@ extension HomeView {
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Text("Rp 249.000")
+                        Text(String(homeVM.saldo))
                             .fontWeight(.bold)
                         
-                        Text("2.500")
+                        Text(String(homeVM.point))
                             .foregroundColor(.green)
                             .fontWeight(.medium)
                     }

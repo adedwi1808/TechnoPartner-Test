@@ -41,6 +41,9 @@ struct LoginView: View {
             Spacer()
         }
         .padding(15)
+        .onAppear {
+            UserDefaults().resetLocale()
+        }
         
     }
 }

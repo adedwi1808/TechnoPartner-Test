@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0180599F29A613AD00D7659D /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180599E29A613AD00D7659D /* HomeServices.swift */; };
+		018059A129A6147200D7659D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018059A029A6147200D7659D /* HomeViewModel.swift */; };
 		01CBCE1D29A5D47900E7B976 /* TechnoPartner_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE1C29A5D47900E7B976 /* TechnoPartner_TestApp.swift */; };
 		01CBCE1F29A5D47900E7B976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE1E29A5D47900E7B976 /* ContentView.swift */; };
 		01CBCE2129A5D47B00E7B976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CBCE2029A5D47B00E7B976 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0180599E29A613AD00D7659D /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		018059A029A6147200D7659D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		01CBCE1929A5D47900E7B976 /* TechnoPartner-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TechnoPartner-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CBCE1C29A5D47900E7B976 /* TechnoPartner_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnoPartner_TestApp.swift; sourceTree = "<group>"; };
 		01CBCE1E29A5D47900E7B976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0180599D29A612AC00D7659D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0180599E29A613AD00D7659D /* HomeServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		01CBCE1029A5D47900E7B976 = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +193,10 @@
 		01CBCE3A29A5E3FF00E7B976 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0180599D29A612AC00D7659D /* Services */,
 				01CBCE4C29A6099E00E7B976 /* Model */,
 				01CBCE3B29A5E42D00E7B976 /* HomeView.swift */,
+				018059A029A6147200D7659D /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -348,8 +362,10 @@
 				01CBCE6229A60F2D00E7B976 /* UserDefaults.swift in Sources */,
 				01CBCE5A29A60D8600E7B976 /* LoginServices.swift in Sources */,
 				01CBCE1D29A5D47900E7B976 /* TechnoPartner_TestApp.swift in Sources */,
+				018059A129A6147200D7659D /* HomeViewModel.swift in Sources */,
 				01CBCE4B29A6017C00E7B976 /* Line.swift in Sources */,
 				01CBCE4E29A609AE00E7B976 /* GetHomeResponseModel.swift in Sources */,
+				0180599F29A613AD00D7659D /* HomeServices.swift in Sources */,
 				01CBCE5129A60A1C00E7B976 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

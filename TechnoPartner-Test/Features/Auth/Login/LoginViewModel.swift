@@ -8,8 +8,8 @@
 import Foundation
 
 class LoginViewModel: ObservableObject {
-    @Published var username: String = ""
-    @Published var password: String = ""
+    @Published var username: String = "support@technopartner.id"
+    @Published var password: String = "1234567"
     @Published var isLogined: Bool = false
     private var prefs: UserDefaults = UserDefaults()
     

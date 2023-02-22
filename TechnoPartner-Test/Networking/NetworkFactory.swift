@@ -10,6 +10,7 @@ import Foundation
 enum NetworkFactory {
     //AUTH
     case doLogin(username: String, password: String)
+    case getHomeData
 }
 
 extension NetworkFactory {
@@ -19,13 +20,15 @@ extension NetworkFactory {
         switch self {
         case .doLogin:
             return "/oauth/token"
+        case .getHomeData:
+            return "/api/home"
         }
     }
     
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .doLogin:
+        default:
             return []
         }
     }
@@ -99,6 +102,8 @@ extension NetworkFactory {
         switch self {
         case .doLogin:
             return getHeaders(type: .anonymous)
+        case .getHomeData:
+            return getHeaders(type: .appToken)
         }
     }
     
@@ -115,7 +120,8 @@ extension NetworkFactory {
     
     fileprivate func getHeaders(type: HeaderType) -> [String: String] {
         
-        let appToken = ""
+        let appToken: String = UserDefaults().getDataFromLocal(String.self, with: .token) ?? ""
+        let tokenType: String = UserDefaults().getDataFromLocal(String.self, with: .tokenType) ?? ""
         
         var header: [String: String]
         
@@ -125,10 +131,10 @@ extension NetworkFactory {
         case .appToken:
             header = ["Content-Type": "application/json",
                       "Accept": "*/*",
-                      "Authorization": "Bearer \(appToken ?? "")"]
+                      "Authorization": "\(tokenType) \(appToken)"]
         case .multiPart:
             header = ["Accept": "*/*",
-                      "Authorization": "Bearer \(appToken ?? "")"]
+                      "Authorization": "\(tokenType) \(appToken)"]
         }
         return header
     }
