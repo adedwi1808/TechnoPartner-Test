@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailQRView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
     
     var qrLink: String = ""
     var body: some View {
@@ -29,7 +29,7 @@ struct DetailQRView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    dismiss()
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.black)
