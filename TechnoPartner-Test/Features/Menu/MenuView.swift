@@ -36,12 +36,18 @@ extension MenuView {
     private var menusView: some View {
         
         ScrollView(showsIndicators: false) {
-            ScrollViewReader { _ in
+            ScrollViewReader { scrollVal in
                 ForEach(menuVM.menus, id: \.self) { category in
                     Text(category.categoryName)
                         .font(.system(size: 16, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .id(category.categoryName)
                     menuItemView(category: category)
+                }
+                .onChange(of: selectedTab) { newValue in
+                    withAnimation {
+                        scrollVal.scrollTo(menuVM.menus[selectedTab], anchor: .top)
+                    }
                 }
             }
             .padding(.horizontal, 15)
