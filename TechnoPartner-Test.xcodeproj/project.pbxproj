@@ -20,6 +20,10 @@
 		01CBCE4829A5F72400E7B976 /* MenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE4729A5F72400E7B976 /* MenuResponse.swift */; };
 		01CBCE4B29A6017C00E7B976 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE4A29A6017C00E7B976 /* Line.swift */; };
 		01CBCE4E29A609AE00E7B976 /* GetHomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE4D29A609AD00E7B976 /* GetHomeResponseModel.swift */; };
+		01CBCE5129A60A1C00E7B976 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE5029A60A1C00E7B976 /* Networker.swift */; };
+		01CBCE5329A60A5C00E7B976 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE5229A60A5C00E7B976 /* NetworkFactory.swift */; };
+		01CBCE5529A60AB400E7B976 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE5429A60AB400E7B976 /* NetworkError.swift */; };
+		01CBCE5729A60C2F00E7B976 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CBCE5629A60C2F00E7B976 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		01CBCE4729A5F72400E7B976 /* MenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuResponse.swift; sourceTree = "<group>"; };
 		01CBCE4A29A6017C00E7B976 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		01CBCE4D29A609AD00E7B976 /* GetHomeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeResponseModel.swift; sourceTree = "<group>"; };
+		01CBCE5029A60A1C00E7B976 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		01CBCE5229A60A5C00E7B976 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
+		01CBCE5429A60AB400E7B976 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		01CBCE5629A60C2F00E7B976 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,7 @@
 		01CBCE1B29A5D47900E7B976 /* TechnoPartner-Test */ = {
 			isa = PBXGroup;
 			children = (
+				01CBCE4F29A60A0000E7B976 /* Networking */,
 				01CBCE3729A5DF9700E7B976 /* Extension */,
 				01CBCE2C29A5D5B000E7B976 /* Features */,
 				01CBCE2B29A5D5A500E7B976 /* Component */,
@@ -152,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				01CBCE3829A5DFA100E7B976 /* String.swift */,
+				01CBCE5629A60C2F00E7B976 /* Data.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +222,16 @@
 				01CBCE4D29A609AD00E7B976 /* GetHomeResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		01CBCE4F29A60A0000E7B976 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				01CBCE5029A60A1C00E7B976 /* Networker.swift */,
+				01CBCE5229A60A5C00E7B976 /* NetworkFactory.swift */,
+				01CBCE5429A60AB400E7B976 /* NetworkError.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +305,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				01CBCE3F29A5EBB900E7B976 /* MenuView.swift in Sources */,
+				01CBCE5729A60C2F00E7B976 /* Data.swift in Sources */,
+				01CBCE5529A60AB400E7B976 /* NetworkError.swift in Sources */,
 				01CBCE3629A5DB6F00E7B976 /* TPTextFieldView.swift in Sources */,
 				01CBCE4529A5ED1300E7B976 /* TPTopBarButtonView.swift in Sources */,
 				01CBCE3229A5D62A00E7B976 /* LoginView.swift in Sources */,
+				01CBCE5329A60A5C00E7B976 /* NetworkFactory.swift in Sources */,
 				01CBCE3929A5DFA100E7B976 /* String.swift in Sources */,
 				01CBCE3C29A5E42D00E7B976 /* HomeView.swift in Sources */,
 				01CBCE1F29A5D47900E7B976 /* ContentView.swift in Sources */,
@@ -295,6 +318,7 @@
 				01CBCE1D29A5D47900E7B976 /* TechnoPartner_TestApp.swift in Sources */,
 				01CBCE4B29A6017C00E7B976 /* Line.swift in Sources */,
 				01CBCE4E29A609AE00E7B976 /* GetHomeResponseModel.swift in Sources */,
+				01CBCE5129A60A1C00E7B976 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
